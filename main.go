@@ -1,12 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
-	
-	server := NewAPIServer(":3000")
 
-	server.Run()
-	
-	fmt.Println("Oh Yes !!")
+	store, err := NewPostgresStore()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("%+v\n",store)
+
+	// server := NewAPIServer(":3000")
+
+	// server.Run()
+
+	// fmt.Println("Oh Yes !!")
 }
